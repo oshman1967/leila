@@ -64,12 +64,8 @@
   .art-cell:hover { background:#1a0d2e; }
   .art-cell:hover::after { transform:scaleX(1); }
   .art-num { font-family:'Cormorant Garamond',serif; font-size:12px; color:var(--gold); letter-spacing:0.2em; }
-  .art-sym { font-size:22px; opacity:0.65; }
-  .art-sym.octagon {
-    width:18px; height:18px; margin:0 auto;
-    clip-path:polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%);
-    background:currentColor; display:inline-block;
-  }
+  .art-sym { font-size:22px; opacity:0.65; height:26px; display:flex; align-items:center; justify-content:center; }
+  .art-sym .oct-shape { width:20px; height:20px; }
   .art-jp { font-family:'Noto Serif JP',serif; font-size:13px; color:var(--cream); letter-spacing:0.1em; line-height:1.8; }
   .art-en { font-size:14px; color:var(--mist); letter-spacing:0.15em; text-transform:uppercase; }
 
@@ -222,7 +218,7 @@
     <div class="art-cell"><div class="art-num">01</div><div class="art-sym">☽</div><div class="art-jp">西洋<br>占星術</div><div class="art-en">Astrology</div></div>
     <div class="art-cell"><div class="art-num">02</div><div class="art-sym">⬡</div><div class="art-jp">ジオ<br>マンシー</div><div class="art-en">Geomancy</div></div>
     <div class="art-cell"><div class="art-num">03</div><div class="art-sym">✡</div><div class="art-jp">カバラ<br>数秘術</div><div class="art-en">Kabbalah</div></div>
-    <div class="art-cell"><div class="art-num">04</div><div class="art-sym octagon"></div><div class="art-jp">奇門<br>遁甲</div><div class="art-en">Qimen</div></div>
+    <div class="art-cell"><div class="art-num">04</div><div class="art-sym"><svg class="oct-shape" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polygon points="8,2 16,2 22,8 22,16 16,22 8,22 2,16 2,8"/></svg></div><div class="art-jp">奇門<br>遁甲</div><div class="art-en">Qimen</div></div>
     <div class="art-cell"><div class="art-num">05</div><div class="art-sym">☯</div><div class="art-jp">易学<br>周易</div><div class="art-en">I Ching</div></div>
     <div class="art-cell"><div class="art-num">06</div><div class="art-sym">🜃</div><div class="art-jp">タロット<br>78枚</div><div class="art-en">Tarot</div></div>
     <div class="art-cell"><div class="art-num">07</div><div class="art-sym">ᚱ</div><div class="art-jp">ルーン<br>文字</div><div class="art-en">Runes</div></div>
