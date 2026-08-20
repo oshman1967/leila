@@ -20,7 +20,7 @@
   .nav-links { display:flex; gap:40px; list-style:none; }
   .nav-links a { font-size:13px; letter-spacing:0.25em; color:var(--cream); text-decoration:none; text-transform:uppercase; transition:color 0.3s; }
   .nav-links a:hover { color:var(--gold-light); }
-  .nav-cta { font-size:13px; letter-spacing:0.3em; color:var(--gold); border:1px solid rgba(184,150,90,0.4); padding:10px 24px; text-decoration:none; text-transform:uppercase; transition:all 0.3s; cursor:none; }
+  .nav-cta { font-size:13px; letter-spacing:0.3em; color:var(--gold); border:1px solid rgba(184,150,90,0.4); padding:10px 24px; text-decoration:none; text-transform:uppercase; transition:all 0.3s; cursor:none; white-space:nowrap; }
   .nav-cta:hover { background:rgba(184,150,90,0.1); border-color:var(--gold); }
 
   /* HERO */
@@ -143,8 +143,12 @@
     .section,.section-dark,.section-cta{padding:80px 32px;}
     footer{flex-direction:column;gap:20px;text-align:center;padding:40px 32px;}
     .hero-btns{flex-direction:column; align-items:flex-start; gap:18px;}
-    .btn-primary{padding:16px 36px; letter-spacing:0.2em; white-space:nowrap;}
+    .btn-primary{padding:14px 30px; letter-spacing:0.15em; font-size:13px; white-space:nowrap;}
     .btn-ghost{white-space:nowrap;}
+    .nav-cta{padding:8px 16px; font-size:11px;}
+    .scroll-hint{display:none;}
+    .cta-break{display:none;}
+    .cta-title{font-size:clamp(26px,7.5vw,36px); letter-spacing:0.1em; line-height:1.6;}
   }
 </style>
 </head>
@@ -326,7 +330,7 @@
   <div class="section-content">
   <div class="cta-bg">Leila</div>
   <div class="cta-eye">Begin Your Journey</div>
-  <h2 class="cta-title">星は、ずっとあなたを<br>待っていました</h2>
+  <h2 class="cta-title">星は、ずっとあなたを<br class="cta-break">待っていました</h2>
   <p class="cta-sub">今この瞬間も、宇宙はあなたに語りかけています。<br>レイラ・タカシマが、その声を通訳します。</p>
   <div class="cta-btns">
     <a href="leila-chat.html" class="btn-primary">無料鑑定を始める</a>
