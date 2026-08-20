@@ -65,6 +65,11 @@
   .art-cell:hover::after { transform:scaleX(1); }
   .art-num { font-family:'Cormorant Garamond',serif; font-size:12px; color:var(--gold); letter-spacing:0.2em; }
   .art-sym { font-size:22px; opacity:0.65; }
+  .art-sym.octagon {
+    width:18px; height:18px; margin:0 auto;
+    clip-path:polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%);
+    background:currentColor; display:inline-block;
+  }
   .art-jp { font-family:'Noto Serif JP',serif; font-size:13px; color:var(--cream); letter-spacing:0.1em; line-height:1.8; }
   .art-en { font-size:14px; color:var(--mist); letter-spacing:0.15em; text-transform:uppercase; }
 
@@ -132,6 +137,7 @@
   @media(max-width:900px){
     nav{padding:20px 24px;} .nav-links{display:none;}
     .hero-content{padding:120px 32px 80px;margin-right:0;max-width:100%;}
+    .hero-name-jp{font-size:clamp(30px,7vw,46px);letter-spacing:0.08em;white-space:nowrap;}
     .arts-grid{grid-template-columns:repeat(4,1fr);}
     .plan-grid,.voice-grid{grid-template-columns:1fr;}
     .section,.section-dark,.section-cta{padding:80px 32px;}
@@ -157,7 +163,7 @@
 <section class="hero">
   <div class="hero-video">
     <video autoplay muted loop playsinline>
-      <source src="https://pub-2793a48c2f2241ce8ba6277d65b8f4a6.r2.dev/layla.mp4" type="video/mp4">
+      <source src="layla.mp4" type="video/mp4">
     </video>
   </div>
   <div class="hero-content">
@@ -192,7 +198,7 @@
 <section class="section" id="arts">
   <div class="section-video-bg">
     <video id="vid-arts" autoplay muted loop playsinline>
-      <source src="https://pub-2793a48c2f2241ce8ba6277d65b8f4a6.r2.dev/tarot.mp4" type="video/mp4">
+      <source src="tarot.mp4" type="video/mp4">
     </video>
   </div>
   <div class="section-content">
@@ -207,7 +213,7 @@
     <div class="art-cell"><div class="art-num">01</div><div class="art-sym">☽</div><div class="art-jp">西洋<br>占星術</div><div class="art-en">Astrology</div></div>
     <div class="art-cell"><div class="art-num">02</div><div class="art-sym">⬡</div><div class="art-jp">ジオ<br>マンシー</div><div class="art-en">Geomancy</div></div>
     <div class="art-cell"><div class="art-num">03</div><div class="art-sym">✡</div><div class="art-jp">カバラ<br>数秘術</div><div class="art-en">Kabbalah</div></div>
-    <div class="art-cell"><div class="art-num">04</div><div class="art-sym">奇</div><div class="art-jp">奇門<br>遁甲</div><div class="art-en">Qimen</div></div>
+    <div class="art-cell"><div class="art-num">04</div><div class="art-sym octagon"></div><div class="art-jp">奇門<br>遁甲</div><div class="art-en">Qimen</div></div>
     <div class="art-cell"><div class="art-num">05</div><div class="art-sym">☯</div><div class="art-jp">易学<br>周易</div><div class="art-en">I Ching</div></div>
     <div class="art-cell"><div class="art-num">06</div><div class="art-sym">🜃</div><div class="art-jp">タロット<br>78枚</div><div class="art-en">Tarot</div></div>
     <div class="art-cell"><div class="art-num">07</div><div class="art-sym">ᚱ</div><div class="art-jp">ルーン<br>文字</div><div class="art-en">Runes</div></div>
@@ -225,7 +231,7 @@
 <section class="section-dark" id="plan">
   <div class="section-video-bg">
     <video id="vid-plan" autoplay muted loop playsinline>
-      <source src="https://pub-2793a48c2f2241ce8ba6277d65b8f4a6.r2.dev/astro.mp4" type="video/mp4">
+      <source src="astro.mp4" type="video/mp4">
     </video>
   </div>
   <div class="section-content">
@@ -277,7 +283,7 @@
 <section class="section" id="voice">
   <div class="section-video-bg">
     <video id="vid-voice" autoplay muted loop playsinline>
-      <source src="https://pub-2793a48c2f2241ce8ba6277d65b8f4a6.r2.dev/rune.mp4" type="video/mp4">
+      <source src="rune.mp4" type="video/mp4">
     </video>
   </div>
   <div class="section-content">
@@ -311,7 +317,7 @@
 <section class="section-cta" id="start">
   <div class="section-video-bg">
     <video id="vid-cta" autoplay muted loop playsinline>
-      <source src="https://pub-2793a48c2f2241ce8ba6277d65b8f4a6.r2.dev/astro.mp4" type="video/mp4">
+      <source src="astro.mp4" type="video/mp4">
     </video>
   </div>
   <div class="section-content">

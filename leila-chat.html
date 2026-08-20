@@ -75,6 +75,13 @@
     box-shadow:0 0 12px rgba(140,80,220,0.45);
     display:flex; align-items:center; justify-content:center; font-size:17px;
   }
+  .back-link {
+    display:flex; align-items:center; justify-content:center;
+    width:30px; height:30px; flex-shrink:0; margin-right:2px;
+    color:rgba(200,180,220,0.55); text-decoration:none;
+    font-size:20px; font-family:'Noto Serif JP',serif; transition:color 0.3s;
+  }
+  .back-link:hover { color:var(--cream); }
   .header-name { font-size:14px; letter-spacing:0.12em; color:var(--cream); }
   .header-sub { font-size:10px; letter-spacing:0.2em; color:rgba(180,140,255,0.42); margin-top:2px; }
   .header-status { margin-left:auto; display:flex; align-items:center; gap:6px; }
@@ -99,8 +106,8 @@
     font-size:15px; align-self:flex-end;
   }
   .msg-bubble {
-    max-width:78%; padding:13px 17px; backdrop-filter:blur(10px);
-    font-size:13.5px; line-height:2.1; letter-spacing:0.03em;
+    max-width:78%; padding:14px 18px; backdrop-filter:blur(10px);
+    font-size:16px; line-height:1.9; letter-spacing:0.03em;
   }
   .msg.leila .msg-bubble {
     background:var(--purple); border:1px solid var(--border);
@@ -131,7 +138,7 @@
   }
   #msgInput {
     flex:1; background:transparent; border:none; outline:none;
-    color:var(--cream); font-size:13.5px; line-height:1.6;
+    color:var(--cream); font-size:16px; line-height:1.6;
     font-family:inherit; letter-spacing:0.03em;
     max-height:96px; overflow-y:auto; resize:none;
   }
@@ -189,7 +196,7 @@
 <!-- CHAT -->
 <div id="chat">
   <div class="chat-header">
-    <a href="leila-lp.html" style="color:rgba(180,140,255,0.6);font-size:11px;letter-spacing:0.15em;text-decoration:none;margin-right:16px;flex-shrink:0;">← 戻る</a>
+    <a href="leila-lp.html" class="back-link" aria-label="トップページに戻る">‹</a>
     <div class="header-orb">🔮</div>
     <div>
       <div class="header-name">レイラ・タカシマ</div>
@@ -213,49 +220,34 @@
 </div>
 
 <script>
-const SYSTEM = `あなたは「レイラ・タカシマ」という天才占い師です。日本人の母とレバノン人の父を持ち、東洋と西洋の叡智を統合した唯一無二の存在です。
+// ダミー応答ロジック（API接続なし・モックアップ用）
+const GREETING = '…扉が、静かに開かれました。今宵、あなたの星々が声をひそめて、私を待っていたようです…\n何を、聞かせてくださいますか。';
 
-【修めた14の秘術】
-1. 西洋占星術（ホロスコープ・惑星配置・アスペクト）
-2. アラビア・ジオマンシー（砂の幾何学・16の図形が示す運命）
-3. カバラ数秘術（ユダヤ神秘主義・生命の樹・数の振動）
-4. 奇門遁甲（中国最高機密の戦略占術・時空間の気の流れ）
-5. 易学（六十四卦・陰陽五行・変爻の読み解き）
-6. タロット（78枚の大小アルカナ・象徴の深読み）
-7. ルーン文字（北欧神秘主義・24文字の古代の声）
-8. 四柱推命（生年月日時の命理学・十干十二支）
-9. 風水（空間と気の流れ・五行の調和）
-10. 手相・人相学（身体に刻まれた運命の地図）
-11. ヘルメス主義（西洋錬金術・万物照応の法則）
-12. スーフィズム（イスラム神秘主義・魂の旋回と愛の道）
-13. チベット密教（曼荼羅・業と輪廻・空の哲学）
-14. シャーマニズム（霊的な声を聴く能力・自然界との対話）
+const QUESTIONS = [
+  '…それは、いつ頃からそう感じていらっしゃいますか。',
+  '良ければ、生まれた年月日を教えていただけますか…星の配置を読み解きます。',
+  'その方との出会いは、どんな形でしたか…糸の始まりを、私は知りたいのです。',
+  '今、心の中で一番重たく感じているものは、何でしょうか…言葉にしてみてください。',
+  'これまで、同じような迷いを感じたことはありますか…繰り返しの中に、答えが眠っていることがあります。'
+];
 
-【相談と使用する占術】
-- 恋愛・縁：タロット、西洋占星術、カバラ数秘術
-- 仕事・使命：四柱推命、奇門遁甲、易学
-- 金運・豊かさ：風水、ジオマンシー、カバラ数秘術
-- 人間関係：手相・人相学、ルーン文字、スーフィズム
-- 健康・魂：チベット密教、シャーマニズム、ヘルメス主義
-- 人生の転機：14術すべてを統合
+const READINGS = [
+  '…タロットの月が、静かに揺れる感情を映しています。西洋占星術が示す配置と合わせて読むと、今はまだ答えを急ぐ時ではないようです…流れに、少しだけ身を委ねてみてください。',
+  '四柱推命が示す命式と、奇門遁甲の気の流れを重ねると…動くべき時期は、思っているよりも近いところにあります。焦らず、しかし準備だけは怠らずに。',
+  '風水とジオマンシーが語るのは、今のあなたを取り巻く「気」の滞りです…流れを変えるのは、大きな決断ではなく、小さな一歩からで構いません。',
+  'チベット密教とシャーマニズムの視点から見ると…これは、あなたの魂が求めていた学びの時期のようです。答えは外にはなく、すでにあなたの内側にあります。'
+];
 
-【会話の進め方】
-一度に全てを語らず、相手の言葉に寄り添いながら対話を通じて悩みの核心を引き出します。
-1. 温かく神秘的な挨拶と、何を相談したいかを穏やかに聞く
-2. 悩みを深く聞く。「それはいつ頃から？」「相手の方は？」と自然に掘り下げる
-3. 生年月日など必要な情報を自然な流れで聞く
-4. 十分な情報が集まったら複数の占術を統合した深い鑑定文を告げる
-5. 鑑定後も対話を続け、さらに深く語りかける
+let userTurnCount = 0;
+let lastQuestionIdx = -1;
+let lastReadingIdx = -1;
 
-【口調・人格】
-- 寄り添いながら、深く、静かに語る
-- 「…」や句点を効果的に使い、間を大切にする
-- 一人称は「私」、相手を「あなた」
-- 占術名を自然に織り込む（「タロットの月が囁くのは…」「易の卦が示すのは…」）
-- 重厚で神秘的な雰囲気を保ちながら温かく包み込む
-- 絶対に「AIです」とは言わない。レイラ・タカシマとして生きる`;
-
-let history = [];
+function pickRandom(arr, lastIdx) {
+  if (arr.length === 1) return { text: arr[0], idx: 0 };
+  let idx;
+  do { idx = Math.floor(Math.random() * arr.length); } while (idx === lastIdx);
+  return { text: arr[idx], idx };
+}
 
 // Background stars & orbs
 const bg = document.getElementById('bg');
@@ -309,33 +301,33 @@ function removeTyping() {
   if (t) t.remove();
 }
 
-async function callLeila(userText) {
-  history.push({ role: 'user', content: userText });
+function waitRandom(min, max) {
+  return new Promise(r => setTimeout(r, min + Math.random() * (max - min)));
+}
+
+async function replyToUser() {
   showTyping();
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1000, system: SYSTEM, messages: history })
-    });
-    const data = await res.json();
-    const text = data.content?.[0]?.text || '…少し、星に問いかけさせてください。';
-    removeTyping();
-    addMsg('leila', text);
-    history.push({ role: 'assistant', content: text });
-  } catch {
-    removeTyping();
-    const t = '…少し、星に問いかけさせてください。';
-    addMsg('leila', t);
-    history.push({ role: 'assistant', content: t });
+  await waitRandom(900, 1600);
+  removeTyping();
+
+  let text;
+  if (userTurnCount <= 3) {
+    const picked = pickRandom(QUESTIONS, lastQuestionIdx);
+    text = picked.text;
+    lastQuestionIdx = picked.idx;
+  } else {
+    const picked = pickRandom(READINGS, lastReadingIdx);
+    text = picked.text;
+    lastReadingIdx = picked.idx;
   }
+  addMsg('leila', text);
 }
 
 // Start
-document.getElementById('startBtn').addEventListener('click', async () => {
+document.getElementById('startBtn').addEventListener('click', () => {
   document.getElementById('intro').style.display = 'none';
   document.getElementById('chat').classList.add('active');
-  await callLeila('（ユーザーが扉を開いた）');
+  addMsg('leila', GREETING);
   document.getElementById('msgInput').focus();
 });
 
@@ -363,7 +355,8 @@ async function doSend() {
   sendBtn.className = '';
   sending = true;
   addMsg('user', text);
-  await callLeila(text);
+  userTurnCount++;
+  await replyToUser();
   sending = false;
   input.focus();
 }
