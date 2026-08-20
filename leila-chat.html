@@ -82,6 +82,10 @@
     font-size:20px; font-family:'Noto Serif JP',serif; transition:color 0.3s;
   }
   .back-link:hover { color:var(--cream); }
+  .back-link.intro-back {
+    position:fixed; top:24px; left:24px; z-index:2;
+    width:38px; height:38px; border:1px solid rgba(180,120,255,0.3); border-radius:50%;
+  }
   .header-name { font-size:14px; letter-spacing:0.12em; color:var(--cream); }
   .header-sub { font-size:10px; letter-spacing:0.2em; color:rgba(180,140,255,0.42); margin-top:2px; }
   .header-status { margin-left:auto; display:flex; align-items:center; gap:6px; }
@@ -173,6 +177,7 @@
 
 <!-- INTRO -->
 <div id="intro">
+  <a href="leila-lp.html" class="back-link intro-back" aria-label="トップページに戻る">‹</a>
   <div class="orb-icon">
     <div class="ring ring1"></div>
     <div class="ring ring2"></div>
